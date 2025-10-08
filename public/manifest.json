@@ -1,54 +1,48 @@
 {
+  "theme_color": "#ADD8E6",
+  "background_color": "#F0F8FF",
   "name": "AudioClear",
   "short_name": "AudioClear",
   "description": "An app for hearing tests and voice denoising.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#EBF4FF",
-  "theme_color": "#B3D4F5",
-  "orientation": "portrait",
-  "id": "/?source=pwa",
-  "scope": "/",
-  "lang": "en",
+  "lang": "en-US",
   "dir": "ltr",
-  "categories": [
-    "medical",
-    "health",
-    "utilities"
+  "start_url": "/",
+  "scope": "/",
+  "id": "/?source=pwa",
+  "display_override": [
+    "standalone",
+    "fullscreen",
+    "minimal-ui"
   ],
+  "display": "standalone",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "https://picsum.photos/seed/icon192/192/192",
+      "src": "https://picsum.photos/seed/audioclear-192/192/192",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://picsum.photos/seed/icon512/512/512",
+      "src": "https://picsum.photos/seed/audioclear-mask-192/192/192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://picsum.photos/seed/audioclear-512/512/512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://picsum.photos/seed/maskable192/192/192",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "https://picsum.photos/seed/maskable512/512/512",
+      "src": "https://picsum.photos/seed/audioclear-mask-512/512/512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "https://picsum.photos/seed/mono192/192/192?grayscale",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "monochrome"
-    },
-    {
-      "src": "https://picsum.photos/seed/mono512/512/512?grayscale",
+      "src": "https://picsum.photos/seed/audioclear-mono/512/512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "monochrome"
@@ -56,55 +50,66 @@
   ],
   "screenshots": [
     {
-      "src": "https://picsum.photos/seed/screen1/540/720",
+      "src": "https://picsum.photos/seed/sc-mobile-1/540/720",
       "sizes": "540x720",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Hearing Test"
     },
     {
-      "src": "https://picsum.photos/seed/screen2/540/720",
-      "sizes": "540x720",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Voice Denoising"
-    },
-    {
-      "src": "https://picsum.photos/seed/screen3/1280/800",
+      "src": "https://picsum.photos/seed/sc-desktop-1/1280/800",
       "sizes": "1280x800",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Hearing Test on Desktop"
+      "label": "Voice Denoising on Desktop"
     }
   ],
   "shortcuts": [
     {
-      "name": "Start Hearing Test",
-      "url": "/?tab=hearing-test",
-      "description": "Begin a new audiometry hearing test.",
-      "icons": [
-        {
-          "src": "https://picsum.photos/seed/shortcut1/96/96",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "name": "Hearing Test",
+      "short_name": "Test Hearing",
+      "description": "Start a new audiometry test",
+      "url": "/#hearing-test",
+      "icons": [{ "src": "https://picsum.photos/seed/shortcut-hearing/96/96", "sizes": "96x96" }]
     },
     {
       "name": "Denoise Voice",
-      "url": "/?tab=voice-denoise",
-      "description": "Record and denoise a voice memo.",
-      "icons": [
-        {
-          "src": "https://picsum.photos/seed/shortcut2/96/96",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
+      "short_name": "Denoise",
+      "description": "Record and denoise your voice",
+      "url": "/#voice-denoise",
+      "icons": [{ "src": "https://picsum.photos/seed/shortcut-denoise/96/96", "sizes": "96x96" }]
+    }
+  ],
+  "categories": ["medical", "lifestyle", "utilities"],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "file_handlers": [
+    {
+      "action": "/?action=handle-file",
+      "accept": {
+        "audio/wav": [".wav"],
+        "audio/mp3": [".mp3"],
+        "application/json": [".json"]
+      }
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 480
+  },
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.example.app",
+      "id": "com.example.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://itunes.apple.com/app/example-app/id123456789"
     }
   ],
   "share_target": {
-    "action": "/share-target",
+    "action": "/?action=share",
     "method": "POST",
     "enctype": "multipart/form-data",
     "params": {
@@ -114,9 +119,7 @@
       "files": [
         {
           "name": "audio",
-          "accept": [
-            "audio/*"
-          ]
+          "accept": ["audio/*"]
         }
       ]
     }
@@ -124,7 +127,11 @@
   "protocol_handlers": [
     {
       "protocol": "web+audioclear",
-      "url": "/?url=%s"
+      "url": "/?protocol=%s"
     }
+  ],
+  "scope_extensions": [
+    { "origin": "*.audioclear.com" },
+    { "origin": "audioclear.dev" }
   ]
 }
