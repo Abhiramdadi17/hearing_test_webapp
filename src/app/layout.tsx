@@ -43,20 +43,6 @@ export default function RootLayout({
       <body className="font-body antialiased">
         {children}
         <Toaster />
-        {/* Service Worker registration: minimal, network-only (no caching) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function () {
-                  navigator.serviceWorker.register('/sw.js')
-                    .then(function (reg) { console.log('ServiceWorker registered', reg); })
-                    .catch(function (err) { console.warn('ServiceWorker registration failed', err); });
-                });
-              }
-            `,
-          }}
-        />
       </body>
     </html>
   );

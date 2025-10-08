@@ -1,77 +1,79 @@
 {
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "id": "/?pwa=true",
   "name": "AudioClear",
   "short_name": "AudioClear",
   "description": "An app for hearing tests and voice denoising.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
   "orientation": "portrait",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["medical", "health", "utilities"],
   "icons": [
     {
-      "src": "https://picsum.photos/seed/icon1/192/192",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
-      "src": "https://picsum.photos/seed/icon2/512/512",
+      "src": "/icons/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
-      "src": "https://picsum.photos/seed/icon3/512/512",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "https://picsum.photos/seed/screen1/540/720",
-      "sizes": "540x720",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Hearing Test"
-    },
-    {
-      "src": "https://picsum.photos/seed/screen2/1280/800",
-      "sizes": "1280x800",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Voice Denoising Results"
-    }
-  ],
   "shortcuts": [
     {
-      "name": "Start Hearing Test",
+      "name": "Hearing Test",
       "short_name": "Hearing Test",
-      "description": "Begin a new audiometry test.",
-      "url": "/?tab=hearing-test",
-      "icons": [
-        {
-          "src": "https://picsum.photos/seed/shortcut1/96/96",
-          "sizes": "96x96"
-        }
-      ]
+      "description": "Start a new hearing test",
+      "url": "/?shortcut=hearing-test",
+      "icons": [{ "src": "/icons/shortcut-hearing.png", "sizes": "192x192" }]
     },
     {
       "name": "Denoise Voice",
       "short_name": "Denoise",
-      "description": "Record and denoise a voice clip.",
-      "url": "/?tab=voice-denoise",
-      "icons": [
-        {
-          "src": "https://picsum.photos/seed/shortcut2/96/96",
-          "sizes": "96x96"
-        }
-      ]
+      "description": "Clean up a voice recording",
+      "url": "/?shortcut=voice-denoise",
+      "icons": [{ "src": "/icons/shortcut-denoise.png", "sizes": "192x192" }]
     }
   ],
-  "scope_extensions": [
+  "screenshots": [
     {
-      "origin": "*"
+      "src": "/screenshots/hearing-1.png",
+      "type": "image/png",
+      "sizes": "1080x2340",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/denoise-1.png",
+      "type": "image/png",
+      "sizes": "1080x2340",
+      "form_factor": "narrow"
+    },
+     {
+      "src": "/screenshots/desktop-1.png",
+      "type": "image/png",
+      "sizes": "1920x1080",
+      "form_factor": "wide"
     }
   ]
 }
